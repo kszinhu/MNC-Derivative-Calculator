@@ -1,0 +1,147 @@
+div.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 100vh;
+}
+
+div.main::after {
+  width: 100%;
+  height: 100%;
+  content: '';
+  z-index: -1;
+  position: fixed;
+  top: 0;
+
+  background: url(../images/bg.svg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 40vw;
+  background-origin: border-box;
+  background-size: 80vw auto;
+}
+
+div.content{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'info landing';
+  height: 80%;
+  width: 90%;
+  align-items: center;
+}
+
+div.content .landing {
+  grid-area: landing;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  justify-self: flex-end;
+}
+
+div.content .landing img {
+  width: 70%
+}
+
+div.content .info {
+  grid-area: info;
+  color: #000000;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  height: 45%;
+}
+
+div.content .info img {
+  align-self: flex-start;
+  height: 8vw;
+  max-height: 70px;
+}
+
+div.content .info .description {
+  font-size: clamp(20px, 30px, 36px);
+}
+
+div.content .info .options button {
+  padding: 10px 20px;
+  background-color: #FF9E16;
+  border: none;
+  font-size: clamp(20px, 24px, 30px);
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 25px;
+  outline: none;
+
+  transition: background-color 0.2s;
+}
+
+div.content .info .options button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+div.content .info .options button:hover {
+  background-color: #fcb551;
+}
+
+@media(max-width: 750px) {
+  div.main {
+    display: flex;
+    align-items: center;
+  }
+
+  div.main::after {
+    background: none;
+  }
+
+  div.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 270px 1fr;
+    grid-template-areas:
+    'info'
+    'landing';
+    align-items: center;
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+
+  div.content .landing {
+    margin-top: 30px;
+    background: url(../images/bg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
+    background-size: auto 100%;
+  }
+
+  div.content .landing img {
+    width: 80%;
+    max-width: 350px;
+  }
+
+  div.content .info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+  }
+
+  div.content .info img {
+    width: 200px;
+    align-self: center;
+    margin-bottom: 40px;
+  }
+  div.content .info .actions {
+    height: 100%;
+    font-size: 20px;
+  }
+
+  div.content .info .actions button {
+    font-size: 20px;
+    padding: 10px 28px
+  }
+}

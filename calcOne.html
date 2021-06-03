@@ -16,30 +16,38 @@
 <body>
   <!-- Main -->
   <div class="main">
-
+    
 
     <!-- Content -->
     <div class="content">
-
+      <a href="/">Voltar</a>
 
       <!-- Div-Input -->
       <div class="input">
         <img src="./assets/images/logo.svg" alt="Icone do Programa, Calculadora com o texto Derivative Calculator">
 
-        <p>Preencha os campos abaixo e veja o resultado<br />
-          <a href="/">Voltar</a>
-        </p>
+        <p>Preencha os campos abaixo e veja o resultado</p>
 
 
         <!-- Form -->
         <form action="" id="form">
-          <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
-            placeholder="f(x) =">
-          <br>
-          <input type="text" maxlength="10" name="x" id="valueX" required spellcheck="false" placeholder="x">
-          <br>
-          <input type="text" maxlength="10" name="x" id="epsilon" required spellcheck="false" placeholder="&#949">
-          <br>
+          <div class="input-wrapper">
+            <span> f(x)= </span>
+            <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
+              placeholder="Insira a função aqui">
+          </div>
+
+          <div class="input-wrapper">
+            <span> X = </span>
+            <input type="text" maxlength="10" name="x" id="valueX" required spellcheck="false"
+              placeholder="Insira o valor de X">
+          </div>
+          <div class="input-wrapper">
+            <span> &#949 = </span>
+            <input type="text" maxlength="10" name="x" id="epsilon" required spellcheck="false"
+              placeholder="Insira o valor de &#949">
+            <br>
+          </div>
           <input type="submit" value="CALCULAR" id="submit" />
         </form>
       </div>
@@ -51,11 +59,15 @@
         <!-- Card -->
         <div class="card default">
           <span class="title">Derivadas</span>
+          <div>
+            <p>Derivada de Primeira Ordem</p>
+            <span class="derived-first">f(x)' = </span>
+          </div>
 
-          <p>Derivada de Primeira Ordem</p>
-          <span class="derived-first">f(x)' = </span>
-          <p>Derivada de Segunda Ordem</p>
-          <span class="derived-second">f(x)'' = </span>
+          <div class="card-result">
+            <p>Derivada de Segunda Ordem</p>
+            <span class="derived-second">f(x)'' = </span>
+          </div>
         </div>
 
       </div>

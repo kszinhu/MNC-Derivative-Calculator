@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 :root {
   --primary: #FF9E16;
   --primary-dark: #c77e11;
@@ -14,7 +16,7 @@ html {
 }
 
 body, button {
-  font-family: 'Montserrat', 'Helvetica', 'Arial', 'sans-serif';
+  font-family: 'Montserrat', 'Nunito', 'Arial', 'sans-serif';
 }
 
 body {

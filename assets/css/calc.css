@@ -58,6 +58,23 @@
   font-size: 1rem;
 }
 
+.content a {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  text-decoration: none; 
+
+  background-color: #ff9e16; 
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Form */
 #form {
   display: flex;
@@ -72,10 +89,12 @@
 #form input {
   font-weight: 400;
   font-size: 1.6rem;
+  font-family: 'Nunito', sans-serif;
   color: #495055;
 
   width: 350px;
   padding: 15px 20px;
+  margin: 5px;
   border-radius: 1.2rem;
   border: 2px solid #d9d9d9;
   outline: none;
@@ -95,7 +114,7 @@
 }
 
 #form input[type="submit"] {
-  font-family: Helvetica;
+  font-family: 'Nunito', sans-serif;
   padding: 15px 20px;
   background-color: #ff9e16;
   color: #fff;
@@ -114,6 +133,27 @@
 #form input[type="submit"]:focus {
   background-color: #fabc66;
 }
+
+div.content form .input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.content form .input-wrapper span{
+  color: #fff;
+  background-color: #ff9e16; 
+  height: 42px;
+  width: 42px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Results */
 .results {
@@ -149,6 +189,10 @@
 
 .card .status {
   font-size: 30px;
+}
+
+.card-result {
+  margin: 10px;
 }
 
 /* Card Default */
@@ -240,7 +284,7 @@ table tr .label {
     align-items: center;
   }
   .card {
-    padding: 80px;
+    padding: 20px 40px;
   }
 }
 
@@ -312,7 +356,7 @@ table tr .label {
     width: 250vw;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    background-color: #fabc66;
+    background-color: #FFEDD4;
   }
 
   .card {

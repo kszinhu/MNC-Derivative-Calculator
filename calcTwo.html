@@ -17,31 +17,38 @@
   <!-- Main -->
   <div class="main">
 
-
     <!-- Content -->
     <div class="content">
-
+      <a href="/">Voltar</a>
 
       <!-- Div-Input -->
       <div class="input">
         <img src="./assets/images/logo.svg" alt="Icone do Programa, Calculadora com o texto Derivative Calculator">
 
-        <p>Preencha os campos abaixo e veja o resultado<br />
-          <a href="/">Voltar</a>
-        </p>
+        <p>Preencha os campos abaixo e veja o resultado</p>
 
         <!-- Form -->
         <form action="" id="form">
+          <div class="input-wrapper">
+            <span> f(x)= </span>
+            <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
+              placeholder="Insira sua função aqui">
+            <br>
+          </div>
 
-          <input type="text" max="200" name="Function" id="Function" required spellcheck="false" placeholder="f(x) = ">
-          <br>
+          <div class="input-wrapper">
+            <span> n = </span>
+            <input type="number" max="10" name="n" id="number-variables" required spellcheck="false"
+              placeholder="Número de variáveis">
+            <br>
+          </div>
 
-          <input type="number" max="10" name="n" id="number-variables" required spellcheck="false" placeholder="n">
-          <br>
-
-          <input type="number" name="epsilon" id="epsilon-value" required spellcheck="false" placeholder="&#949">
-          <br>
-
+          <div class="input-wrapper">
+            <span> &#949 = </span>
+            <input type="number" name="epsilon" id="epsilon-value" required spellcheck="false"
+              placeholder="Insira o &#949">
+            <br>
+          </div>
 
           <input type="submit" value="CALCULAR" id="submit" />
         </form>

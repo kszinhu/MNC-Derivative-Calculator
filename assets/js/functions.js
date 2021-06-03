@@ -1,70 +1,80 @@
 /**
- * returns the value of the mathematical expression.
+ * returns the formatted mathematical expression.
  *
- * @param {input} string of mathematical expression.
- * @return {output} expression value.
+ * @param {input} string of the unformatted mathematical expression.
+ * @param {x} number of X.
+ * @return {output} string of the formatted mathematical expression.
  */
-
-function calculate(input) {
-  var f = {
-    add: "+",
-    sub: "-",
-    div: "/",
-    mlt: "*",
-    mod: "%",
-    exp: "^",
-  };
-
-  // Create array for Order of Operation and precedence
-  f.ooo = [
-    [[f.mlt], [f.div], [f.mod], [f.exp]],
-    [[f.add], [f.sub]],
-  ];
-
-  input = input.replace(/[^0-9%^*\/()\-+.]/g, ""); // clean up unnecessary characters
-
-  var output;
-  for (var i = 0, n = f.ooo.length; i < n; i++) {
-    // Regular Expression to look for operators between floating numbers or integers
-    var reg = new RegExp(
-      "(\\d+\\.?\\d*)([\\" + f.ooo[i].join("\\") + "])(\\d+\\.?\\d*)"
-    );
-    reg.lastIndex = 0; // take precautions and reset reg starting pos
-
-    // Loop while there is still calculation for level of precedence
-    while (reg.test(input)) {
-      output = _calculate(RegExp.$1, RegExp.$2, RegExp.$3);
-      if (isNaN(output) || !isFinite(output)) return output; // come out if not a number
-      input = input.replace(reg, output);
-    }
-  }
-
+function formattingExpression(input, x) {
+  const output = input
+    .replace("x", x)
+    .replace("sen", "sin")
+    .replace("tg", "tan")
+    .replace("^", "**")
+    .replace("pi", "Math.PI");
   return output;
+}
 
-  function _calculate(a, op, b) {
-    a = a * 1;
-    b = b * 1;
-    switch (op) {
-      case f.add:
-        return a + b;
-        break;
-      case f.sub:
-        return a - b;
-        break;
-      case f.div:
-        return a / b;
-        break;
-      case f.mlt:
-        return a * b;
-        break;
-      case f.mod:
-        return a % b;
-        break;
-      case f.exp:
-        return Math.pow(a, b);
-        break;
-      default:
-        null;
-    }
+/**
+ * returns the value at the point of the derivative.
+ *
+ * @param {input} string of the formatted mathematical expression.
+ * @param {x} number of X.
+ * @param {epsilon} number of Epsilon.
+ * @return {output} value at the point of the derivative.
+ */
+function calculateFirstDerivative(input, x, epsilon) {
+  let h = 1000 * epsilon;
+
+  with (Math)
+    p =
+      (eval(formattingExpression(input, x + h)) -
+        eval(formattingExpression(input, x - h))) /
+      (2 * h);
+
+  for (let index = 0; index < 10; index++) {
+    let q = p;
+    h /= 2;
+
+    with (Math)
+      p =
+        (eval(formattingExpression(input, x + h)) -
+          eval(formattingExpression(input, x - h))) /
+        (2 * h);
+    if (Math.abs(p - q) < epsilon) break;
   }
+  return p;
+}
+
+/**
+ * returns the value at the point of the derivative.
+ *
+ * @param {input} string of the formatted mathematical expression.
+ * @param {epsilon} number of Epsilon.
+ * @param {x} number of X.
+ * @return {output} value at the point of the derivative.
+ */
+function calculateSecondDerivative(input, x, epsilon) {
+  let h = 1000 * epsilon;
+
+  with (Math)
+    p =
+      (eval(formattingExpression(input, x + 2 * h)) -
+        2 * eval(formattingExpression(input, x)) +
+        eval(formattingExpression(input, x - 2 * h))) /
+      (4 * h * h);
+
+  for (let index = 0; index < 10; index++) {
+    let q = p;
+    h /= 2;
+
+    with (Math)
+      p =
+        (eval(formattingExpression(input, x + 2 * h)) -
+          2 * eval(formattingExpression(input, x)) +
+          eval(formattingExpression(input, x - 2 * h))) /
+        (4 * h * h);
+    if (Math.abs(p - q) < epsilon) break;
+  }
+  return p;
 }

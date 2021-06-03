@@ -1,12 +1,15 @@
 const derivedFirst = document.querySelector(".derived-first");
 const derivedSecond = document.querySelector(".derived-second");
 
-function derivative() {
+function plotDerivedValue() {
   const inF = document.querySelector("#Function").value;
-  const inX = document.querySelector("#valueX").value;
-  const inE = document.querySelector("#epsilon").value;
+  const inX = parseFloat(document.querySelector("#valueX").value);
+  const inE = parseFloat(document.querySelector("#epsilon").value);
 
-  let h = 1000 * inE;
-  var p = calculate(inF.replace('x',inX)); 
-  
+  document.querySelector(
+    ".derived-first"
+  ).innerHTML = `f(x)'= ${calculateFirstDerivative(inF, inX, inE)}`;
+  document.querySelector(
+    ".derived-second"
+  ).innerHTML = `f(x)'= ${calculateSecondDerivative(inF, inX, inE)}`;
 }

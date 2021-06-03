@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./assets/css/global.css">
   <link rel="stylesheet" href="./assets/css/calc.css">
 
-  <title>Derivative Calculator - One Variable</title>
+  <title>Derivative Calculator - A Real Variable</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 
 
         <!-- Form -->
-        <form action="" id="form">
+        <form action="" id="form" onsubmit="derivative()">
           <div class="input-wrapper">
             <span> f(x)= </span>
             <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
@@ -48,7 +48,7 @@
               placeholder="Insira o valor de &#949">
             <br>
           </div>
-          <input type="submit" value="CALCULAR" id="submit" />
+          <input type="submit" value="CALCULAR" id="submit"/>
         </form>
       </div>
       <!--Div-Input closure-->

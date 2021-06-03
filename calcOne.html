@@ -16,7 +16,7 @@
 <body>
   <!-- Main -->
   <div class="main">
-    
+
 
     <!-- Content -->
     <div class="content">
@@ -30,7 +30,7 @@
 
 
         <!-- Form -->
-        <form action="" id="form" onsubmit="plotDerivedValue()">
+        <form action="" id="form" onsubmit="plotDerivedValue(); return false">
           <div class="input-wrapper">
             <span> f(x)= </span>
             <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
@@ -39,16 +39,16 @@
 
           <div class="input-wrapper">
             <span> X = </span>
-            <input type="text" maxlength="10" name="x" id="valueX" required spellcheck="false"
-              placeholder="Insira o valor de X">
+            <input type="text" maxlength="10" name="x" onchange="this.value = this.value.replace(/,/g, '.')" id="valueX"
+              required spellcheck="false" placeholder="Insira o valor de X">
           </div>
           <div class="input-wrapper">
             <span> &#949 = </span>
-            <input type="text" maxlength="10" name="x" id="epsilon" required spellcheck="false"
-              placeholder="Insira o valor de &#949">
+            <input type="text" maxlength="10" name="x" onchange="this.value = this.value.replace(/,/g, '.')"
+              id="epsilon" required spellcheck="false" placeholder="Insira o valor de &#949">
             <br>
           </div>
-          <input type="submit" value="CALCULAR" id="submit"/>
+          <input type="submit" value="CALCULAR" id="submit" />
         </form>
       </div>
       <!--Div-Input closure-->

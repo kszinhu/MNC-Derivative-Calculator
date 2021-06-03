@@ -7,5 +7,6 @@ function derivative() {
   const inE = document.querySelector("#epsilon").value;
 
   let h = 1000 * inE;
-  var p = eval(inF.replace('x',inX)); 
+  var p = calculate(inF.replace('x',inX)); 
+  
 }

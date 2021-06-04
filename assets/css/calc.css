@@ -164,6 +164,15 @@ div.content form .input-wrapper span {
   min-height: 550px;
 }
 
+.result {
+  display: flex;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 5px;
+  padding: 12px;
+  margin: 10px 5px;
+}
+
 /* Card*/
 .card {
   display: flex;
@@ -175,7 +184,7 @@ div.content form .input-wrapper span {
   padding: 20px;
   padding-bottom: 35px;
   margin: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.082);
+  box-shadow: 0px 5px 3px rgb(0 0 0 / 5%);
 }
 
 .card .title {
@@ -337,7 +346,6 @@ table tr .label {
     overflow: hidden;
     width: 100vw;
     padding-bottom: 40px;
-    min-height: 600px;
     justify-content: flex-start;
   }
 
@@ -345,6 +353,7 @@ table tr .label {
     content: "";
     position: absolute;
     z-index: -1;
+    overflow: hidden;
 
     top: 120px;
     height: 100%;

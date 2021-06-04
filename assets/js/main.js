@@ -8,8 +8,8 @@ function plotDerivedValue() {
 
   document.querySelector(
     ".derived-first"
-  ).innerHTML = `f(x)'= ${calculateFirstDerivative(inF, inX, inE)}`;
+  ).innerHTML = `= ${calculateFirstDerivative(inF, inX, inE)}`;
   document.querySelector(
     ".derived-second"
-  ).innerHTML = `f(x)'= ${calculateSecondDerivative(inF, inX, inE)}`;
+  ).innerHTML = `= ${calculateSecondDerivative(inF, inX, inE)}`;
 }

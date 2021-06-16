@@ -5,12 +5,12 @@
  * @param {x} number of X.
  * @return {output} string of the formatted mathematical expression.
  */
-function formattingExpression(input, x) {
+function formattingExpression(input) {
   const output = input
-    .replace("x", x)
-    .replace("sen", "sin")
-    .replace("tg", "tan")
-    .replace("^", "**")
+    .replace(/sen|sin/gi, "sin")
+    .replace(/cos/gi, "cos")
+    .replace(/tg|tan/gi, "tan")
+    .replace(/\^/, "**")
     .replace("pi", "Math.PI");
   return output;
 }
@@ -26,21 +26,19 @@ function formattingExpression(input, x) {
 function calculateFirstDerivative(input, x, epsilon) {
   let h = 1000 * epsilon;
 
-  with (Math)
-    p =
-      (eval(formattingExpression(input, x + h)) -
-        eval(formattingExpression(input, x - h))) /
-      (2 * h);
+  p =
+    (evaluate(formattingExpression(input), { x: x + h }) -
+      evaluate(formattingExpression(input), { x: x - h })) /
+    (2 * h);
 
   for (let index = 0; index < 10; index++) {
     let q = p;
     h /= 2;
 
-    with (Math)
-      p =
-        (eval(formattingExpression(input, x + h)) -
-          eval(formattingExpression(input, x - h))) /
-        (2 * h);
+    p =
+      (evaluate(formattingExpression(input), { x: x + h }) -
+        evaluate(formattingExpression(input), { x: x - h })) /
+      (2 * h);
     if (Math.abs(p - q) < epsilon) break;
   }
   return p;
@@ -59,9 +57,9 @@ function calculateSecondDerivative(input, x, epsilon) {
 
   with (Math)
     p =
-      (eval(formattingExpression(input, x + 2 * h)) -
-        2 * eval(formattingExpression(input, x)) +
-        eval(formattingExpression(input, x - 2 * h))) /
+      (evaluate(formattingExpression(input), { x: x + 2 * h }) -
+        2 * evaluate(formattingExpression(input), { x: x }) +
+        evaluate(formattingExpression(input), { x: x - 2 * h })) /
       (4 * h * h);
 
   for (let index = 0; index < 10; index++) {
@@ -70,9 +68,9 @@ function calculateSecondDerivative(input, x, epsilon) {
 
     with (Math)
       p =
-        (eval(formattingExpression(input, x + 2 * h)) -
-          2 * eval(formattingExpression(input, x)) +
-          eval(formattingExpression(input, x - 2 * h))) /
+        (evaluate(formattingExpression(input), { x: x + 2 * h }) -
+          2 * evaluate(formattingExpression(input), { x: x }) +
+          evaluate(formattingExpression(input), { x: x - 2 * h })) /
         (4 * h * h);
     if (Math.abs(p - q) < epsilon) break;
   }

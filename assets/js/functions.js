@@ -11,7 +11,7 @@ function formattingExpression(input) {
     .replace(/cos/gi, "cos")
     .replace(/tg|tan/gi, "tan")
     .replace(/\^/, "**")
-    .replace("pi", "Math.PI");
+    .replace(/pi/gi, "Math.PI");
   return output;
 }
 
@@ -100,6 +100,13 @@ function calculatePartialDerivative(input, n, x, i, epsilon) {
   return p;
 }
 
-var evaluate = (input, variables) => {
+// Support functions
+
+evaluate = (input, variables) => {
   with (variables) with (Math) return eval(input);
 };
+
+getObjectVariables = (input) =>
+  input
+    .match(/\b[a-z]\d*\b/gi)
+    .reduce((acc, cur) => ((acc[cur] = cur), acc), {});

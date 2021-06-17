@@ -28,26 +28,66 @@
         <p>Preencha os campos abaixo e veja o resultado</p>
 
         <!-- Form -->
-        <form action="" id="form" onsubmit="derivativeMultiple()">
+        <form action="" id="form" onsubmit="return false">
           <div class="input-wrapper">
             <span> f(x)= </span>
-            <input type="text" max="200" name="Function" id="Function" required spellcheck="false"
-              placeholder="Insira sua função aqui">
+            <input type="text" max="200" name="Function" id="Function"
+              onchange="this.value = this.value.replace(/,/g, '.')" required spellcheck="false"
+              placeholder="Insira sua função aqui" oninput="variables = getObjectVariables(this.value)">
             <br>
           </div>
 
           <div class="input-wrapper">
             <span> n = </span>
-            <input type="number" max="10" name="n" id="number-variables" required spellcheck="false"
+            <input type="text" max="10" name="n" id="number-variables"
+              onchange="this.value = this.value.replace(/,/g, '.')" required spellcheck="false"
               placeholder="Número de variáveis">
             <br>
           </div>
 
           <div class="input-wrapper">
             <span> &#949 = </span>
-            <input type="number" name="epsilon" id="epsilon-value" required spellcheck="false"
-              placeholder="Insira o &#949">
+            <input type="text" name="epsilon" id="epsilon-value" onchange="this.value = this.value.replace(/,/g, '.')"
+              required spellcheck="false" placeholder="Insira o &#949">
             <br>
+          </div>
+
+          <div class="card default">
+            <span class="title">Insira os valores das variáveis</span>
+            <div class="table input-x">
+              <table class="insert">
+                <tr class="row-label">
+                  <th class="label">i</th>
+                  <th class="label">1</th>
+                  <th class="label">2</th>
+                  <th class="label">3</th>
+                  <th class="label">4</th>
+                  <th class="label">5</th>
+                  <th class="label">6</th>
+                </tr>
+                <tr class="input-label">
+                  <th>x[i]</th>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this)">
+                  </td>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this, 2)">
+                  </td>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this, 3)">
+                  </td>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this, 4)">
+                  </td>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this, 5)">
+                  </td>
+                  <td>
+                    <input class="table-input" type="number" onblur="blurCollapse(this, 6)">
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
 
           <input type="submit" value="CALCULAR" id="submit" />
@@ -60,32 +100,6 @@
 
         <!-- Cards -->
         <div class="row">
-          <div class="card default">
-            <span class="title">f(x)</span>
-            <div class="table result-x">
-              <table>
-                <tr>
-                  <th class="label">i</th>
-                  <th class="label">1</th>
-                  <th class="label">2</th>
-                  <th class="label">3</th>
-                  <th class="label">4</th>
-                  <th class="label">5</th>
-                  <th class="label">6</th>
-                </tr>
-                <tr>
-                  <th class="label">x[i]</th>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
           <div class="card default">
             <span class="title">Resultados</span>
             <div class="table result-gradient">

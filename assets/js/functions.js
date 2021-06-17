@@ -110,3 +110,13 @@ getObjectVariables = (input) =>
   input
     .match(/\b[a-z]\d*\b/gi)
     .reduce((acc, cur) => ((acc[cur] = cur), acc), {});
+
+blurCollapse = (input, cont = 1) => {
+  debugger;
+  if (!isNaN(parseFloat(input.value))) {
+    let newElement = document.createElement("span");
+    newElement.innerHTML = input.value;
+    newElement.setAttribute(`data-${cont}`, input.value);
+    input.parentNode.replaceChild(newElement, input);
+  }
+};

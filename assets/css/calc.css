@@ -159,6 +159,11 @@ div.content form .input-wrapper span {
   height: 20px;
 }
 
+#form .input-label span {
+  font-weight: normal;
+  margin: 10px;
+}
+
 /* Results */
 .results {
   display: flex;

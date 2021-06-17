@@ -11,7 +11,8 @@ function formattingExpression(input) {
     .replace(/cos/gi, "cos")
     .replace(/tg|tan/gi, "tan")
     .replace(/\^/, "**")
-    .replace(/pi/gi, "Math.PI");
+    .replace(/pi/gi, "Math.PI")
+    .replace(/\e/gi, "Math.e");
   return output;
 }
 
@@ -77,23 +78,23 @@ function calculateSecondDerivative(input, x, epsilon) {
   return p;
 }
 
-function calculatePartialDerivative(input, n, x, i, epsilon) {
+function calculatePartialDerivative(input, variables, i, epsilon) {
   let h = 1000 * epsilon;
-  let xi = n[i];
-  n[i] = xi + h;
+  let xi = variables[i];
+  variables[i] = xi + h;
 
   f1 = evaluate(formattingExpression(input), variables);
   n[i] = xi - h;
-  with (Math) f2 = eval(formattingExpression(input, x));
+  f2 = evaluate(formattingExpression(input), variables);
   p = (f1 - f2) / (2 * h);
 
   for (let index = 0; index < 10; index++) {
     q = p;
     h = h / 2;
     n[i] = xi + h;
-    with (Math) f1 = eval(formattingExpression(input, x));
+    f1 = evaluate(formattingExpression(input), variables);
     n[i] = xi - h;
-    with (Math) f2 = eval(formattingExpression(input, x));
+    f2 = evaluate(formattingExpression(input), variables);
     p = (f1 - f2) / (2 * h);
     if (Math.abs(p - q) < epsilon) break;
   }
@@ -108,15 +109,35 @@ evaluate = (input, variables) => {
 
 getObjectVariables = (input) =>
   input
-    .match(/\b[a-z]\d*\b/gi)
+    .match(/\b([a-df-z])\d*\b/gi)
     .reduce((acc, cur) => ((acc[cur] = cur), acc), {});
 
-blurCollapse = (input, cont = 1) => {
+blurCollapse = (input, counter) => {
   debugger;
   if (!isNaN(parseFloat(input.value))) {
     let newElement = document.createElement("span");
     newElement.innerHTML = input.value;
-    newElement.setAttribute(`data-${cont}`, input.value);
+    newElement.setAttribute(`data-x${counter}`, input.value);
     input.parentNode.replaceChild(newElement, input);
+  }
+};
+
+createInput = (object, element_class, counter = 1) => {
+  let element = document.querySelector(element_class);
+  for (let key in object) {
+    let newElement = document.createElement("th");
+    newElement.innerHTML = `<input class="table-input" type="number" onblur="blurCollapse(this, ${counter})"></input>`;
+    element.appendChild(newElement);
+    counter++;
+  }
+};
+
+createLabels = (object, element_class, counter = 1) => {
+  let element = document.querySelector(element_class);
+  for (let key in object) {
+    let newElement = document.createElement("th");
+    newElement.innerHTML = `${counter}`;
+    element.appendChild(newElement);
+    counter++;
   }
 };

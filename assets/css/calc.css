@@ -154,6 +154,11 @@ div.content form .input-wrapper span {
   align-items: center;
 }
 
+#form .table-input {
+  width: 20px;
+  height: 20px;
+}
+
 /* Results */
 .results {
   display: flex;
@@ -332,7 +337,6 @@ table tr .label {
 
   #form input {
     font-size: 1.2rem;
-
     width: 300px;
   }
 
@@ -364,7 +368,6 @@ table tr .label {
   }
 
   .card {
-    max-width: 400px;
     margin-top: 10px;
   }
 

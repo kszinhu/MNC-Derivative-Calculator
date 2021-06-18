@@ -1,8 +1,7 @@
 /**
- * returns the formatted mathematical expression.
+ * returns the mathematical expression formatted using Regex.
  *
  * @param {input} string of the unformatted mathematical expression.
- * @param {x} number of X.
  * @return {output} string of the formatted mathematical expression.
  */
 function formattingExpression(input) {
@@ -78,6 +77,14 @@ function calculateSecondDerivative(input, x, epsilon) {
   return p;
 }
 
+/**
+ * returns multiple values of the derivative at the point.
+ *
+ * @param {input} string of the formatted mathematical expression.
+ * @param {i} number of corresponding variable.
+ * @param {epsilon} number of Epsilon.
+ * @return {output} value at the point of the derivative.
+ */
 function calculatePartialDerivative(input, i, epsilon) {
   let x = getValueX();
   let h = 1000 * epsilon;
@@ -110,17 +117,27 @@ function calculatePartialDerivative(input, i, epsilon) {
 
 // Support functions
 
+/**
+ * function that performs the true calculation of the mathematical expression.
+ *
+ * @param {input} string of the formatted mathematical expression.
+ * @param {variables} object with various value and value respectively (key:value).
+ * @return {output} value at the point of the derivative.
+ */
 evaluate = (input, variables) => {
   with (variables) with (Math) return eval(input);
 };
 
+// returns amount of variables present in the expression
 getSize = (input) => input.match(/\b([a-df-z])\d*\b/gi).length;
 
+// captures the value of x given by the user in the table
 getValueX = () =>
   Array.from(document.querySelectorAll(".xValues")).map((element) =>
     parseFloat(element.innerHTML)
   );
 
+// creates the object with the values of the variables (key:value)
 getObjectVariables = (input, x_values) =>
   input
     .match(/\b([a-df-z])\d*\b/gi)

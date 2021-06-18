@@ -1,6 +1,4 @@
-const derivedFirst = document.querySelector(".derived-first");
-const derivedSecond = document.querySelector(".derived-second");
-
+// inserts value of derivative
 function plotDerivedValue() {
   const inF = document.querySelector("#Function").value;
   const inX = parseFloat(document.querySelector("#valueX").value);
@@ -14,6 +12,7 @@ function plotDerivedValue() {
   ).innerHTML = `= ${calculateSecondDerivative(inF, inX, inE)}`;
 }
 
+// Inserts gradient vector value
 function plotGradient() {
   // const tableResult = document.querySelector('.result-x');
   const input = document.querySelector("#Function").value;
@@ -36,12 +35,13 @@ function plotGradient() {
   insertTableResult(result);
 }
 
+// inserts table for insertion of the values of n variables
 function insertTable() {
   let form = document.querySelector("#form");
   let card = document.createElement("div");
   let size = getSize(
     formattingExpression(document.querySelector("#Function").value)
-  ); // Tamanho das variáveis
+  );
   card.setAttribute("class", "card default insert-table");
   card.innerHTML = `<span class="title">Insira os valores das variáveis</span>
     <div class="table input-x">
@@ -64,12 +64,13 @@ function insertTable() {
   createInput(size, ".input-label", "th");
 }
 
+// inserts result table
 function insertTableResult(result) {
   let row = document.querySelector(".row-results");
   let card = document.createElement("div");
   let size = getSize(
     formattingExpression(document.querySelector("#Function").value)
-  ); // Tamanho das variáveis
+  );
   card.setAttribute("class", "card default gradient");
   card.innerHTML = `<span class="title">Gradiente</span>
     <div class="table result-gradient">

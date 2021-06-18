@@ -7,33 +7,33 @@
     </h3>
 </div>
 
-ğŸ“š - MÃ©todos NumÃ©ricos Computacionais  
-ğŸ‘¨â€ğŸ« - Marco AntÃ´nio Rahal Sacoman
+?? - Métodos Numéricos Computacionais  
+????? - Marco Antônio Rahal Sacoman
 
 ---
-A calculadora presente neste repositÃ³rio realiza suas funÃ§Ãµes com base em mÃ©todos numÃ©ricos, apresentados na Disciplina de *MÃ©todos NÃºmericos Computacionais*.  
+A calculadora presente neste repositório realiza suas funções com base em métodos numéricos, apresentados na Disciplina de *Métodos Númericos Computacionais*.  
 Tendo as seguintes funcionalidades
-- Calculo de **Derivada de primeira/segunda ordem** para uma variÃ¡vel real.
-- Calculo de **Gradiente** para *n* variÃ¡veis reais.
-- Calculo da **Hessiana** para *n* variÃ¡veis reais.
+- Calculo de **Derivada de primeira/segunda ordem** para uma variável real.
+- Calculo de **Gradiente** para *n* variáveis reais.
+- Calculo da **Hessiana** para *n* variáveis reais.
 
-## â„¹ Como usar
+## ? Como usar
 
-1. VocÃª pode **clonar o repositÃ³rio**, utilizando a ferramenta [Git](https://git-scm.com) seguindo as linhas de comando abaixo:
+1. Você pode **clonar o repositório**, utilizando a ferramenta [Git](https://git-scm.com) seguindo as linhas de comando abaixo:
 
 ```bash
-# Clonar o repositÃ³rio / Clone this repository
+# Clonar o repositório / Clone this repository
 $ git clone https://github.com/kszinhu/MNC-Derivative-Calculator.git
 
-# Para ir atÃ© o repositÃ³rio / Go into the repository
+# Para ir até o repositório / Go into the repository
 $ cd MNC-Derivative-Calculator
 ```
 
-2. Ou entrar no link em que essa aplicaÃ§Ã£o esta sendo hospedada (**GithubPages**):  
+2. Ou entrar no link em que essa aplicação esta sendo hospedada (**GithubPages**):  
 [Derivative Calculator](https://kszinhu.github.io/MNC-Derivative-Calculator/)
 
 ---
 
-## ğŸ‘¨ğŸ½â€ğŸ’» - Autores
+## ??????? - Autores
 
 - **Cassiano Henrique Aparecido Rodrigues** - [Linkedin](https://www.linkedin.com/in/cassiano-rodrigues-28bb8b16a/)

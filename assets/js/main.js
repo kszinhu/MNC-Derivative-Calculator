@@ -16,12 +16,24 @@ function plotDerivedValue() {
 
 function plotGradient() {
   // const tableResult = document.querySelector('.result-x');
-
+  const input = document.querySelector("#Function").value;
+  const inE = parseFloat(document.querySelector("#epsilon-value").value);
+  let result = [];
   // tests only
-  let variables = getObjectVariables(
-    formattingExpression(document.querySelector("#Function").value),
-    getValueX()
-  ); // return object
+  let variables = getObjectVariables(formattingExpression(input), getValueX()); // return object
+  let size = getSize(
+    formattingExpression(document.querySelector("#Function").value)
+  );
+  debugger;
+  for (let index = 0; index < size; index++) {
+    result[index] = calculatePartialDerivative(
+      formattingExpression(input),
+      index,
+      inE
+    );
+  }
+  debugger;
+  insertTableResult(result);
 }
 
 function insertTable() {
@@ -48,6 +60,32 @@ function insertTable() {
   !document.querySelector(".insert-table")
     ? form.insertBefore(card, document.querySelector("#submit")) // True - Se não existir
     : form.replaceChild(card, document.querySelector(".insert-table")); // False - Se existir
-  createLabels(size, ".row-label");
-  createInput(size, ".input-label");
+  createLabels(size, ".row-label", 1, "th");
+  createInput(size, ".input-label", "th");
+}
+
+function insertTableResult(result) {
+  let row = document.querySelector(".row-results");
+  let card = document.createElement("div");
+  let size = getSize(
+    formattingExpression(document.querySelector("#Function").value)
+  ); // Tamanho das variáveis
+  card.setAttribute("class", "card default gradient");
+  card.innerHTML = `<span class="title">Gradiente</span>
+    <div class="table result-gradient">
+      <table>
+        <tr style="display: flex">
+          <th class="column-label">
+          </th>
+          <th class="result-label">
+          </th>
+        </tr>
+      </table>
+    </div>`;
+  debugger;
+  document.querySelector(".waiting-gradient")
+    ? row.replaceChild(card, document.querySelector(".waiting-gradient"))
+    : row.replaceChild(card, document.querySelector(".gradient"));
+  createLabels(size, ".column-label", 1, "tr");
+  createResult(size, ".result-label", result);
 }

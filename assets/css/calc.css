@@ -183,6 +183,12 @@ div.content form .input-wrapper span {
   margin: 10px 5px;
 }
 
+th .result-table {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 /* Card*/
 .card {
   display: flex;

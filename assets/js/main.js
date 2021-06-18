@@ -33,6 +33,9 @@ function plotGradient() {
   }
   debugger;
   insertTableResult(result);
+  window.speechSynthesis.speak(
+    new SpeechSynthesisUtterance("Confira o seu resultado no card gradiente")
+  );
 }
 
 // inserts table for insertion of the values of n variables

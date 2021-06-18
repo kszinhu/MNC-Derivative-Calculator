@@ -11,7 +11,9 @@ function formattingExpression(input) {
     .replace(/tg|tan/gi, "tan")
     .replace(/\^/gi, "**")
     .replace(/pi/gi, "Math.PI")
-    .replace(/\e/gi, "Math.e");
+    .replace(/\log\D/gi, "log10(")
+    .replace(/\ln/gi, "log")
+    .replace(/\e/gi, "Math.E");
   return output;
 }
 

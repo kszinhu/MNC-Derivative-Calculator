@@ -201,6 +201,7 @@ th .result-table {
   padding-bottom: 35px;
   margin: 10px;
   box-shadow: 0px 5px 3px rgb(0 0 0 / 5%);
+  height: fit-content;
 }
 
 .card .title {
